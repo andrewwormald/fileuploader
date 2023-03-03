@@ -35,7 +35,6 @@ func (c *client) Send(r io.Reader, chunks int) error {
 		start := int(chunkSize) * (i - 1)
 		end := int(chunkSize) * i
 		chunk := data[start:end]
-		fmt.Println(i, string(chunk))
 
 		err = binary.Write(conn, binary.LittleEndian, int64(len(chunk)))
 		if err != nil {
